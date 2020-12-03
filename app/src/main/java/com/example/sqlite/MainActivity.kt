@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.sqlite.adapter.NotasAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.example.sqlite.Nota
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        miRecycler!!.layoutManager = GridLayoutManager(this,2)
+        miRecycler!!.layoutManager = StaggeredGridLayoutManager(2,1)
         miRecycler!!.setHasFixedSize(true)
         miRecycler!!.adapter = NotasAdapter(listaNotasShow, this)
 
