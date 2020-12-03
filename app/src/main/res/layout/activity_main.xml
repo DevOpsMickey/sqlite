@@ -7,6 +7,17 @@
     tools:context=".MainActivity">
 
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/myRecyclerNotas"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnAddNota"
         android:layout_width="70dp"
@@ -14,7 +25,11 @@
         android:layout_marginBottom="48dp"
         android:backgroundTint="#FFC107"
         android:clickable="true"
-        android:text="+"
+        android:elevation="10dp"
+        android:paddingTop="231dp"
+        android:src="@drawable/simbolo"
+        app:borderWidth="0dp"
+        app:fabCustomSize="69dp"
         app:fabSize="auto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,19 +37,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:useCompatPadding="false" />
 
-    <TextView
-        android:id="@+id/tvAddNota"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:elevation="10dp"
-        android:text="+"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="49dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnAddNota"
-        app:layout_constraintEnd_toEndOf="@+id/btnAddNota"
-        app:layout_constraintStart_toStartOf="@+id/btnAddNota"
-        app:layout_constraintTop_toTopOf="@+id/btnAddNota"
-        app:layout_constraintVertical_bias="0.592" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

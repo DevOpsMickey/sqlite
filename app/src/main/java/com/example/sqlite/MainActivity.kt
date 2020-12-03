@@ -1,11 +1,14 @@
 package com.example.sqlite
 
 import android.content.Intent
-import android.nfc.Tag
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.sqlite.adapter.NotasAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.example.sqlite.Nota
 
 
 class MainActivity : AppCompatActivity() {
@@ -14,21 +17,31 @@ class MainActivity : AppCompatActivity() {
     val DB_VERSION = 1
 
     var fabAdd: FloatingActionButton?=null
+    var miRecycler:RecyclerView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         fabAdd = findViewById(R.id.btnAddNota)
+        miRecycler = findViewById(R.id.myRecyclerNotas)
+        val listaNotasShow = ArrayList<Nota>()
 
         myNotaDBHelper = NotasDBHelper(this, DB_NAME, null, DB_VERSION)
         myNotaDBHelper!!.open()
 
         val notas = myNotaDBHelper!!.getListNotas()
 
+
         for (nota in notas){
-            Log.d("Prueba", "${nota.titulo}")
+            listaNotasShow.add(nota)
+            Log.d("Prueba", "${nota}")
+
         }
+
+        miRecycler!!.layoutManager = GridLayoutManager(this,2)
+        miRecycler!!.setHasFixedSize(true)
+        miRecycler!!.adapter = NotasAdapter(listaNotasShow, this)
 
         fabAdd!!.setOnClickListener{
             val i = Intent(this, Add_Notas_Activity::class.java)
