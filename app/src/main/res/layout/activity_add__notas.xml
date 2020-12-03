@@ -13,7 +13,7 @@
       android:layout_height="wrap_content"
       android:ems="10"
       android:fontFamily="sans-serif-black"
-      android:hint="TITULO"
+      android:hint="Titulo"
       android:inputType="textPersonName"
       android:paddingLeft="15dp"
       android:textColor="#000000"
